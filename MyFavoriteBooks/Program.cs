@@ -6,10 +6,10 @@ internal class Program
     {
         Console.WriteLine("Welcome to the FavoriteBooksApp!");
         Console.WriteLine("Please enter your 5 favorite books, separated by commas (e.g. Book1, Book2, Book3, Book4, Book5):");
-        string listNames = Console.ReadLine();
+        string InputBooksName = Console.ReadLine();
 
         //convet the string to the list
-        List<string> favBooks = listNames.Split(',').Select(listNames => listNames).ToList();
+        List<string> favBooks = InputBooksName.Split(',').Select(name => name.Trim()).ToList();
 
         //write the favBooks to the file called books
         string filePath = "C:\\Users\\ThembinkosiDladla\\OneDrive - Prosus-Naspers\\Desktop\\LEARN25\\C#\\Fundamentals\\Projects\\MyFavoriteBooks\\Files\\Books.txt";

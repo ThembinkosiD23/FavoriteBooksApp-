@@ -27,10 +27,6 @@ internal class Program
             }
 
         }
-        else
-        {
-            Console.WriteLine("The file is already there!");
-        }
 
         // --- READ AND DISPLAY FILE CONTENT ---
         Console.WriteLine("Here is the list of your favorite books:");
@@ -40,5 +36,21 @@ internal class Program
             Console.WriteLine(content);
         }
 
+        //APPEND ADDITIONAL BOOKS 
+        Console.WriteLine("\nNow, please enter 3 more favorite books (separated by commas):");
+        string newBooksInput = Console.ReadLine();
+
+        List<string> newBooks = newBooksInput.Split(',').Select(book => book.Trim()).ToList();
+
+        // Append new books to the existing file
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            foreach (string book in newBooks)
+            {
+                writer.WriteLine(book);
+            }
+            Console.WriteLine("\n New books have been added successfully!\n");
+
+        }
     }
 }

@@ -11,6 +11,25 @@ internal class Program
         //convet the string to the list
         List<string> favBooks = listNames.Split(',').Select(listNames => listNames).ToList();
 
+        //write the favBooks to the file called books
+        string pathfile = "C:\\Users\\ThembinkosiDladla\\OneDrive - Prosus-Naspers\\Desktop\\LEARN25\\C#\\Fundamentals\\Projects\\MyFavoriteBooks\\Files\\Books.txt";
+
+        //chek if the file is there
+        if (!File.Exists(pathfile))
+        {
+            //create the file and write on it
+            using StreamWriter writer = new StreamWriter(pathfile);
+            //write the list of favBook in the file
+            foreach (string favBook in favBooks)
+            {
+                writer.WriteLine(favBook);
+            }
+
+        }
+        else
+        {
+            Console.WriteLine("The file is already there!");
+        }
 
     }
 }

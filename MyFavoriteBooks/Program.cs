@@ -52,5 +52,15 @@ internal class Program
             Console.WriteLine("\n New books have been added successfully!\n");
 
         }
+
+        //DISPLAY UPDATED LIST
+        Console.WriteLine("Here is your updated list of favorite books:");
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            string updatedContent = reader.ReadToEnd();
+            Console.WriteLine(updatedContent);
+        }
+
+        Console.WriteLine("\nThank you for using FavoriteBooksApp!");
     }
 }
